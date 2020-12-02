@@ -402,6 +402,9 @@ function updateGameArea() {
         bank.update();
         lifeStatus += 2;
         pPressedDisable = false;
+
+        run.image.src = "run_disable.png";
+
     }
     
     if(runSpeed >= 14){
