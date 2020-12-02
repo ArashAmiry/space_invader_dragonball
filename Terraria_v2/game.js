@@ -402,6 +402,7 @@ function updateGameArea() {
         bank.update();
         lifeStatus += 2;
         pPressedDisable = false;
+        lifeBuy.image.src = "runOneThird.png";
     }
     
     if(runSpeed >= 14){
