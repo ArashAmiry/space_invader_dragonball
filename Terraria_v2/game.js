@@ -403,6 +403,7 @@ function updateGameArea() {
         lifeStatus += 2;
         pPressedDisable = false;
         lifeBuy.image.src = "heart_disabled.png";
+
     }
     
     if(runSpeed >= 14){
