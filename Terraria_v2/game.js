@@ -402,7 +402,7 @@ function updateGameArea() {
         bank.update();
         lifeStatus += 2;
         pPressedDisable = false;
-        run.image.src = "run_disable.png";
+        lifeBuy.image.src = "heart_disabled.png";
     }
     
     if(runSpeed >= 14){
