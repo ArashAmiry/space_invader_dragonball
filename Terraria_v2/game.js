@@ -402,6 +402,7 @@ function updateGameArea() {
         bank.update();
         lifeStatus += 2;
         pPressedDisable = false;
+        lifeBuy.image.src = "heart_disabled.png";
 
     }
     
