@@ -21,7 +21,7 @@ var kamehamehaSpeed = 0;
 
 // Antal livräknare
 var startLife;
-var lifeStatus = 62;
+var lifeStatus = 5;
 
 // Game Score variabler
 var killCounter;
@@ -48,7 +48,7 @@ var isSpawnedAlien3 = true;
 
 // Bank/superkrafter
 var bank;
-var money = 100000;
+var money = 0;
 
 // var run;
 var runSpeed = 8;
@@ -349,9 +349,9 @@ function updateGameArea() {
     // spacebarPressed -- skottet avfyras och isFired true gör att värdet inte behåller samma koordinat som karaktär
     if(spacebarPressed == true || isFired == true){
         if(shotCountImage == 3){
-            kamehamehaShot.speedY = -50;
+            kamehamehaShot.speedY = -26;
         } else if(shotCountImage == 2){
-            kamehamehaShot.speedY = -30;
+            kamehamehaShot.speedY = -23;
         }
         else{
             kamehamehaShot.speedY = -20;
@@ -363,10 +363,10 @@ function updateGameArea() {
     }
 
     if(kPressed == true && money >= 500){
-        if(runSpeed < 14){
+        if(runSpeed < 8.9){
             money -= 500;
             bank.update();
-            runSpeed += 2;
+            runSpeed += 0.3;
             runCountImage++;
             kPressed = false;
         }
@@ -397,16 +397,15 @@ function updateGameArea() {
         lPressed = false;
     }
 
-    if(pPressed == true && lifeStatus >= 1 && pPressedDisable == true){
-        money -= 10000;
+    if(pPressed == true && lifeStatus >= 1 && pPressedDisable == true && money >= 2000){
+        money -= 2000;
         bank.update();
-        lifeStatus += 2;
+        lifeStatus += 3;
         pPressedDisable = false;
         lifeBuy.image.src = "heart_disabled.png";
-
     }
     
-    if(runSpeed >= 14){
+    if(runSpeed >= 8.9){
         run.image.src = "run_disable.png";
     }
     else if(runCountImage == 1){
@@ -441,7 +440,7 @@ function updateGameArea() {
         lifeBuy.update();
         lifeBuyLetter.text = "[P]";
         lifeBuyLetter.update();
-        lifeCost.text = "10000$";
+        lifeCost.text = "2000$";
         lifeCost.update();
         backgroundMusic.play();
 }
@@ -468,6 +467,6 @@ function startGame() {
     shotCost = new component("15px", "Arcade", "aqua", 633, 493, "text");
     lifeBuy = new component(40, 40, "heart.png", 712, 447, "image");
     lifeBuyLetter = new component("15px", "Arcade", "aqua", 723, 449, "text");
-    lifeCost = new component("15px", "Arcade", "aqua", 709, 493, "text");
+    lifeCost = new component("15px", "Arcade", "aqua", 715, 493, "text");
     myGameArea.start();
 }
